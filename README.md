@@ -1,17 +1,18 @@
-# BGW720 Reflash Analytics — V3
+# BGW720 Reflash Analytics — V1
 
-Proyecto completo con dashboard visual y backend conectado a SQL Server.
+Complete project with a visual dashboard and backend connected to SQL Server.
 
 ## Estructura
 
-- `frontend/`: dashboard responsive con la paleta verde BGW720.
-- `backend/`: API Node.js/TypeScript y scripts SQL.
+- `frontend/`: responsive dashboard with the BGW720 green color palette.
+- `backend/`: Node.js/TypeScript API and SQL scripts.
+
 
 ## Preparación inicial
 
-1. Instala Node.js 20.9 o superior.
-2. En `backend/`, copia `.env.example` como `.env` y completa la conexión de SQL Server.
-3. Desde la carpeta principal ejecuta:
+1. Install Node.js 20.9 or higher.
+2. In backend/, copy .env.example to .env and configure the SQL Server connection.
+3. From the root directory, run:
 
 ```powershell
 npm run setup
@@ -23,9 +24,9 @@ npm run setup
 npm run dev
 ```
 
-Abre `http://localhost:5173`. El frontend consulta el backend en `http://localhost:3000`.
+Open `http://localhost:5173`. The frontend communicates with the backend at http://localhost:3000.
 
-Si la API o SQL Server no están disponibles, la interfaz muestra datos demostrativos y lo indica claramente. Cuando la conexión responde, cambia automáticamente a `Live data`.
+If the API or SQL Server is unavailable, the interface displays demo data and clearly indicates it. Once the connection is available, it automatically switches to Live data.
 
 ## Validar producción
 
@@ -33,4 +34,4 @@ Si la API o SQL Server no están disponibles, la interfaz muestra datos demostra
 npm run build
 ```
 
-Los objetos de base de datos están en `backend/database/` y deben ejecutarse en el orden documentado en `backend/database/README.md`.
+The database objects are located in backend/database/ and must be executed in the order documented in backend/database/README.md.
