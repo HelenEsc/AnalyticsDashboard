@@ -3,7 +3,6 @@ import cors from "@fastify/cors";
 import { env } from "./config/env.js";
 import { getDbPool } from "./config/database.js";
 import { dashboardRoutes } from "./routes/dashboard.js";
-import { chatRoutes } from "./routes/chat.js";
 
 const app = Fastify({
   logger: true
@@ -42,10 +41,6 @@ app.get("/health/db", async (_request, reply) => {
 
 await app.register(dashboardRoutes, {
   prefix: "/api/dashboard"
-});
-
-await app.register(chatRoutes, {
-  prefix: "/api/chat"
 });
 
 try {

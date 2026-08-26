@@ -14,4 +14,4 @@ The API database user needs only:
 - `EXECUTE` on both stored procedures.
 - `SELECT` on `dbo.vw_BGW720ReflashTestResults` for the approved failure-reasons query.
 
-No endpoint accepts SQL text from the browser or the AI chat.
+No endpoint accepts SQL text from the browser.

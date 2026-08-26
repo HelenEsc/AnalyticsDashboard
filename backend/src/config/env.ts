@@ -16,9 +16,7 @@ const envSchema = z.object({
   DB_POOL_MIN: z.coerce.number().default(0),
   DB_POOL_IDLE_TIMEOUT: z.coerce.number().default(30000),
 
-  CORS_ORIGIN: z.string().default("http://localhost:5173"),
-  AI_API_KEY: z.string().optional(),
-  AI_MODEL: z.string().optional()
+  CORS_ORIGIN: z.string().default("http://localhost:5173")
 });
 
 export const env = envSchema.parse(process.env);

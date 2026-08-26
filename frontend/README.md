@@ -1,49 +1,35 @@
-# BGW720 Reflash Analytics
+# Frontend — BGW720 Reflash Analytics
 
-Responsive operations dashboard for the BGW720 reflash process.
+Aplicación Next.js/React sin autenticación. La estructura visual es JSX y los estilos son CSS normal.
 
-## Included
+## Archivos principales
 
-- First-test and last-test yield KPIs
-- Total output and final failures
-- Yield trend chart
-- Failures by station
-- Top failure reasons
-- Daily results table
-- Custom date range and 7/30/90-day shortcuts
-- Loading, empty, API error and demo-data states
+- `app/page.tsx`: coordina estado, carga y filtros.
+- `app/globals.css`: paleta, layout y responsive design.
+- `components/KpiCards.tsx`: los cuatro cards principales.
+- `components/TrendChart.tsx`: gráfica SVG y panel de tendencia.
+- `components/FailurePanels.tsx`: estaciones y razones de fallo.
+- `components/DailyResultsTable.tsx`: tabla diaria.
+- `components/DateFilters.tsx`: filtros y rangos rápidos.
+- `components/Sidebar.tsx`: menú y conexión.
+- `lib/dashboard-api.ts`: llamadas HTTP al backend.
+- `types/dashboard.ts`: estructuras de respuesta.
 
-## Connect the live backend
+## Configuración
 
-Create `.env.local` from `.env.example`:
+Opcionalmente crea `.env.local`:
 
 ```env
 NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
 ```
 
-The dashboard calls:
+Si no existe, se utiliza `http://localhost:3000`.
 
-- `GET /api/dashboard/summary`
-- `GET /api/dashboard/failures-by-station`
-- `GET /api/dashboard/failure-reasons`
+## Comandos
 
-Each request sends `startDate` and `endDate` in `YYYY-MM-DD` format. If the API
-cannot be reached, the interface clearly switches to representative demo data.
-
-For a deployed frontend, set `NEXT_PUBLIC_API_BASE_URL` to the HTTPS address of
-the deployed backend and allow that frontend origin in the backend CORS policy.
-
-## Local development
-
-Requirements: Node.js 22.13 or newer.
-
-```bash
+```powershell
 npm install
 npm run dev
-```
-
-The production validation command is:
-
-```bash
+npm run typecheck
 npm run build
 ```
